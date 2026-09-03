@@ -1,0 +1,32 @@
+<form action="/alunos" method="post">
+    <label for="input_nome">
+        <input type="text" name="nome" id="input_nome" placeholder="Nome" required>
+    </label>
+    <label for="input_idade">
+        <input type="number" name="idade" id="input_idade" placeholder="Idade" required>
+    </label>
+    <label for="input_nota">
+        <input type="nota" name="nota" id="input_nota" placeholder="Nota" required>
+    </label>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Nota</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each alunos}}
+            <tr>
+                <td>{{this.nome}}</td>
+                <td>{{this.idade}}</td>
+                <td>{{this.nota}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
