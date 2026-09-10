@@ -7,16 +7,18 @@
 body {
   height: 100vh;
   width: 100%;
-  background-color: blanchedalmond;
-  color: whitesmoke;
+  background-color: #3c576e;
+  color: #ffffff;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
 header {
-  padding: 4rem;
+  background-color: #8b9ead;
   text-align: center;
+  padding: 2rem;
+  margin-bottom: 4rem;
 }
 
 main {
@@ -30,15 +32,27 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background-color: #98876d;
+  padding: 2rem;
+  border-radius: 16px;
 
-  .form_campo {
+  .form-campo {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
+  }
+
+  button {
+    margin-top: 0.5rem;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #edd6b2;
+    }
   }
 }
 
-input {
+input, select {
   background-color: whitesmoke;
   border: 1px solid whitesmoke;
   border-radius: 12px;
@@ -55,6 +69,16 @@ nav {
   display: flex;
   justify-content: center;
   gap: 12px;
+
+  a {
+    color: #EDD6B2;
+    transition: 0.3s;
+
+    &:hover {
+      font-size: 1.25rem;
+      text-decoration: none;
+    }
+  }
 }
 
 button {
@@ -68,11 +92,21 @@ button {
 
 table {
   text-align: center;
+  background-color: #98876d;
+  padding: 2rem;
+  border-radius: 16px;
 
   th,
   td {
     padding: 1rem;
+    border: 2px solid #ffffff;
   }
+}
+
+caption {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 h1 {

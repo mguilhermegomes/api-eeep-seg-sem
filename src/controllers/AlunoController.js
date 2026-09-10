@@ -2,7 +2,8 @@ const alunos = [];
 
 class Aluno {
   constructor(nome, idade, nota) {
-    ((this.id = crypto.randomUUID()), (this.nome = nome));
+    this.id = crypto.randomUUID();
+    this.nome = nome;
     this.idade = idade;
     this.nota = nota;
   }
@@ -21,4 +22,4 @@ class AlunoController {
   }
 }
 
-export default AlunoController;
+export { alunos, AlunoController };

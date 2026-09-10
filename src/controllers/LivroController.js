@@ -9,7 +9,7 @@ class Livro {
     this.exemplares = Number(exemplares);
     this.emprestados = 0;
     this.disponiveis = this.exemplares - this.emprestados;
-    this.disponivel = this.disponiveis ? true : false;
+    this.disponivel = !!this.disponiveis;
     this.situacao = this.disponivel ? "Disponível" : "Todos emprestados";
   }
 }
@@ -32,5 +32,4 @@ class LivroController {
     res.redirect("/livros");
   }
 }
-
-export default LivroController;
+export { livros, LivroController };

@@ -14,7 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(express.static(caminhoPublic));
 
 app.engine(
   "handlebars",
@@ -33,5 +32,7 @@ app.locals.urlbase = `http://localhost:${process.env.PORT}`;
 app.locals.titulo = "Sistema de Gestão Escolar";
 
 router(app);
+
+app.use(express.static(caminhoPublic));
 
 export default app;

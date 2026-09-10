@@ -1,0 +1,58 @@
+<form action="/emprestimos" method="post">
+    <div class="form-campo">
+        <label for="select_aluno">Seleção de aluno:</label>
+        <select name="alunoId" id="select_aluno" required>
+            <option disabled selected>Selecione um aluno</option>
+
+            {{#each alunos}}
+                <option name="aluno" value="{{this.id}}">{{this.nome}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-campo">
+        <label for="select_livro">Seleção de livro:</label>
+        <select name="livroId" id="select_livro" required>
+            <option disabled selected>Selecione um livro</option>
+
+            {{#each livros}}
+                <option name="livro" value="{{this.id}}">{{this.titulo}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-campo">
+        <label for="input_data_emprestimo">Data de empréstimo:</label>
+        <input type="date" name="dataEmprestimo" id="input_data_emprestimo" required>
+    </div>
+    <div class="form-campo">
+        <label for="input_data_devolucao">Data de devolução:</label>
+        <input type="date" name="dataDevolucao" id="input_data_devolucao" required>
+    </div>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<table>
+    <caption>Empréstimos realizados</caption>
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Livro</th>
+            <th>Data empréstimo</th>
+            <th>Data devolução</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each emprestimos}}
+            <tr>
+                <td>{{this.aluno.nome}}</td>
+                <td>{{this.livro.titulo}}</td>
+                <td>{{this.dataEmprestimo}}</td>
+                <td>{{this.dataDevolucao}}</td>
+            </tr>
+        {{else}}
+            <tr>
+                <td colspan="5">Nenhum empréstimo cadastrado</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
