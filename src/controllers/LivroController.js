@@ -8,9 +8,21 @@ class Livro {
     this.ano = Number(ano);
     this.exemplares = Number(exemplares);
     this.emprestados = 0;
+
+    this.atualizarSituacao();
+  }
+
+  atualizarSituacao() {
     this.disponiveis = this.exemplares - this.emprestados;
-    this.disponivel = !!this.disponiveis;
+    this.disponivel = this.disponiveis > 0;
     this.situacao = this.disponivel ? "Disponível" : "Todos emprestados";
+  }
+
+  emprestar() {
+    if (this.emprestados > this.exemplares) return false;
+
+    this.emprestados = ++this.emprestados;
+    this.atualizarSituacao();
   }
 }
 

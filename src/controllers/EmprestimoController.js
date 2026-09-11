@@ -24,6 +24,10 @@ class EmprestimoController {
         const livro = livros.find((livro) => livro.id === livroId);
         const aluno = alunos.find((aluno) => aluno.id === alunoId);
 
+        if (!livro.disponivel) {
+            return res.status(400).send("Não há exemplares disponíveis para o livro.");
+        }
+
         if (!livro || !aluno) {
             return res.status(400).send("Livro ou aluno não encontrado/inexistente");
         }
@@ -34,6 +38,8 @@ class EmprestimoController {
 
         const emprestimo = new Emprestimo(livro, aluno, dataEmprestimo, dataDevolucao);
         emprestimos.push(emprestimo);
+
+        livro.emprestar();
 
         res.redirect("/emprestimos");
     }
