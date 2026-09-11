@@ -28,7 +28,6 @@ app.engine(
 app.set("view engine", "handlebars");
 app.set("views", join(caminhoPasta, "views"));
 
-app.locals.urlbase = `http://localhost:${process.env.PORT}`;
 app.locals.titulo = "Sistema de Gestão Escolar";
 
 router(app);
